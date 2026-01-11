@@ -17,6 +17,15 @@ app.get("/", (req, res) => {
   res.send("EV Backend Running");
 });
 
+// keep-alive endpoint
+app.get("/keepalive", (req, res) => {
+  console.log("🔥 KeepAlive ping received");
+  res.status(200).json({
+    alive: true,
+    service: "ev-backend"
+  });
+});
+
 // register routes
 app.use("/station", stationRoutes);
 
